@@ -1,0 +1,67 @@
+1. Daily Batch ETL with Manual Triggers
+
+How It Works:
+
+Incoming email data is written to a staging area (like a database table or flat files).
+A cron job or scheduler triggers an ETL process only once per day (or on another infrequent schedule).
+The ETL job processes the entire batch, performs necessary transformations and enrichments, and then loads the data into the final data store.
+
+Why It’s High Latency:
+
+Data is not processed until the next scheduled job, potentially leaving emails in the staging area for up to 24 hours (or longer).
+If manual intervention is required to start or monitor the job, delays can increase further.
+
+
+2. Synchronous, Chained Microservices Without Asynchronous Messaging
+
+How It Works:
+
+The email subscription event flows through several microservices in a strict synchronous chain.
+For example, one service validates the email, the next enriches the data (e.g., fetching additional user details), and a third persists the data to a database.
+Each microservice must wait for the previous one to complete before it can start processing.
+
+Why It’s High Latency:
+
+Each synchronous call introduces waiting time.
+If any single microservice experiences delays or downtime, the entire chain slows down, causing significant cumulative latency.
+
+
+3. Legacy SOAP-Based Integration with Synchronous API Calls
+
+How It Works:
+
+The email data is sent to a legacy system via SOAP-based web services.
+The system makes synchronous API calls to external services for validation or enrichment.
+Each SOAP call waits for a response before proceeding to the next step in the pipeline.
+
+Why It’s High Latency:
+
+SOAP APIs tend to be heavier and less efficient than modern REST or streaming APIs.
+Synchronous operations block the flow until a response is received, and legacy systems often do not scale well under load.
+
+
+4. Polling-Based Ingestion with Long Poll Intervals
+
+How It Works:
+
+Instead of using an event-driven or push-based mechanism, the system periodically polls a data source (e.g., a remote log file or external system API) to detect new email subscriptions.
+Polling occurs on a fixed schedule, such as every 15 minutes or every hour.
+
+Why It’s High Latency:
+
+New events might be created just after a poll and then have to wait until the next polling cycle to be detected.
+The delay introduced by the polling interval can lead to an overall latency that is determined by the length of the interval plus processing time.
+
+
+5. Synchronous API Gateway with Sequential Database Writes
+
+How It Works:
+
+An API gateway receives email subscription requests and immediately writes them to a relational database.
+Before the API responds to the client, it synchronously calls additional internal services (or even external systems) to perform data validation, transformation, and then writes the results to multiple tables.
+The response is sent only after all sequential operations are completed.
+
+Why It’s High Latency:
+
+Each database write and synchronous service call adds to the overall response time.
+In high-traffic scenarios, sequential processing can cause a backlog, where each request waits its turn for multiple round-trips to the database and other services.

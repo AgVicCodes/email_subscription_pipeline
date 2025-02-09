@@ -1,0 +1,22 @@
+HIGH LATENCY
+
+
+
+LOW LATENCY
+
+[User / Email Submission]
+          │
+          ▼
+[API Gateway / Load Balancer]
+          │
+          ▼
+  [Message Broker (Kafka)]
+          │
+          ▼
+[Stream Processing Engine (Spark/Flink/AWS Lambda)]
+          │
+          ▼
+[Low-Latency Data Store (DynamoDB/Redis)]
+          │
+          ▼
+[Downstream Applications / Dashboards / Analytics]
