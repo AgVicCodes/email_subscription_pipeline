@@ -3,4 +3,4 @@ A project that simulates the processing of a low latency email subscription data
 
 Created faker script to simulate new signup activity
 
-Next is to use Airflow to create cron job for periodic simulaton of actua signup activity
+Next is to use Airflow to create cron job for periodic simulaton of actual signup activity

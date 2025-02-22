@@ -1,0 +1,116 @@
+You said:
+Project_Management_Plan.pdf
+PDF
+Convert this to a power point.
+
+Segment important sections and dont miss out on anything 
+Reasoned for 12 seconds
+Below is an outline for a PowerPoint presentation that covers every important section of your Project and Data Management Plan. Each slide is segmented to ensure no details are missed.
+
+Slide 1 – Title Slide
+• Title: Handwritten Mathematical Expression Recognition and Evaluation Using CNNs
+• Subtitle: Project and Data Management Plan
+• (Optional: Add your name, institution, and date)
+
+Slide 2 – Project Overview
+• Project Title: Handwritten Mathematical Expression Recognition and Evaluation Using CNNs
+• Summary:
+ – Develop and compare various frameworks/models for recognizing handwritten mathematical expressions.
+ – Focus on expressions ranging from simple formulas to complex limits and high-degree polynomials.
+• Dataset:
+ – Primary: Aida Calculus Math Handwriting Recognition Dataset (from Kaggle).
+ – Contains synthetically generated images with embedded LaTeX labels and detailed JSON metadata.
+• Goal: Identify the most effective OCR framework for this challenging task.
+
+Slide 3 – Literature Review (Part 1)
+• Hong-Yu et al. (2025):
+ – Architecture: YOLOv5-m for symbol detection combined with a 3-layer transformer decoder (Vision Language Pre-training).
+ – Datasets: Trained on CROHME; tested on CROHME and HME100K.
+ – Results:
+  * Pre-training alone achieved low F1 scores (0.18–0.21).
+  * Training (with/without pre-training) reached F1 scores of 0.96–0.99, with minor improvements from pre-training.
+• Key Takeaway:
+ – CNN-based approaches can be very effective, with pre-training offering modest gains in generalization.
+
+Slide 4 – Literature Review (Part 2)
+• Navaneetha Krishnan M et al. (2023):
+ – Compared CNN frameworks (VGG, LeNet, ResNet, etc.).
+ – Preprocessing: Conversion to grayscale, noise reduction, image segmentation.
+ – Outcome: LeNet outperformed others with a 98% accuracy using the CROHME dataset.
+• Zhu et al. (2024):
+ – Proposed CNN-Tr model comprising: feature extractor, CNN with transformer encoder, and CTC transcriptor.
+ – Evaluated on Im2Latex-100k and IBEM datasets.
+ – Performance: Achieved a Token Error Rate of 93.8, outperformed several state-of-the-art non-transformer models; only DNN-RL exceeded it with 96.5.
+• Conclusion from Reviews:
+ – CNN-based models are highly efficient.
+ – LeNet is a strong baseline, with future exploration into LSTM, feedforward networks, and transformers to further improve results.
+
+Slide 5 – Research Question & Objectives
+• Research Question:
+ – What framework is most effective in recognizing handwritten mathematical expressions?
+• Project Objectives:
+ – Compare multiple CNN-based frameworks, including variants with LSTM, feedforward neural networks, and transformers.
+ – Evaluate performance metrics (accuracy, recall, F1 score) and generalization across dataset subsets.
+ – Analyze strengths and weaknesses of each framework against the ground truth LaTeX labels.
+
+Slide 6 – Project Plan
+• Task List:
+ – Conduct a thorough literature review.
+ – Extract and transform data from JSON files.
+ – Develop and maintain the project and document management plan.
+ – Perform exploratory data analysis.
+ – Process detailed image metadata (dimensions, bounding boxes, PNG masks).
+ – Develop the CNN-based OCR framework.
+ – Train models using processed data.
+ – Compare model performance using standard metrics (accuracy, F1 score).
+ – Document the process and prepare presentation materials.
+ – Finalize the report and presentation slides.
+• Timeline:
+ – (Outline timeline details as per your project schedule.)
+
+Slide 7 – Data Management Plan
+• Dataset Overview:
+ – Created for Aida, a Pearson Higher Education tutoring application for calculus.
+ – Contains approximately 100,000 images in 10 batches with corresponding JSON files.
+ – Total size: Approximately 11 GB, with each JSON file holding ~10,000 records including image dimensions, bounding boxes, and PNG masks.
+• Document Control & Versioning:
+ – Repository: Handwritten Mathematical Expression GitHub Repository.
+ – Regular commits (approx. four times per week) using snake case naming conventions.
+ – Comprehensive README detailing reproducibility, installation, usage, dependencies, and security.
+ – Weekly backups on OneDrive (MSc. Data Science and Machine Learning Project).
+• Ethical Requirements:
+ – Dataset is synthetically generated with no personal data.
+ – Fully compliant with GDPR and University Ethical Policies, with ethically obtained permissions.
+
+Slide 8 – References
+• Hong-Yu Guo et al. (2025): Vision–language pre-training for graph-based handwritten mathematical expression recognition. Pattern Recognition.
+ – Available at: https://www.sciencedirect.com/science/article/pii/S0031320325000068
+• Navaneetha Krishnan M et al. (2023): Comparative Analysis of CNN and Character Recognition Techniques for Handwritten Mathematical Equation Solver. Journal of Survey in Fisheries Sciences.
+• Zhu et al. (2024): Implicit Character-Aided Learning for Enhanced Handwritten Mathematical Expression Recognition.
+ – DOI: https://doi-org.ezproxy.herts.ac.uk/10.1007/978-3-031-70549-6_2
+
+This slide deck covers all sections from the project title and overview to the literature review, research question, project plan, data management, and references. You can now create the actual slides in your preferred presentation software using this detailed outline.
+
+
+
+
+You said:
+What other things shoould I add to the slide?
+Reasoned for 7 seconds
+Here are some additional elements you might consider adding:
+
+• A "Methodology/Approach" slide that details your overall workflow—from data extraction and pre-processing through model training and evaluation. A diagram or flowchart can visually illustrate this process.
+
+• A dedicated "Timeline and Milestones" slide with a visual timeline showing key deliverables and deadlines, helping to clarify project progression.
+
+• An "Architecture & Tools" slide to outline the technical framework. You could include details like the deep learning libraries, programming languages, and any hardware specifics, along with a high-level diagram of your CNN and additional modules.
+
+• A "Risk Management & Mitigation" slide where you list potential challenges (e.g., data quality issues, training time constraints) and your plans to address them.
+
+• A "Results & Expected Outcomes" slide to outline what metrics (accuracy, recall, F1 score) you will be using to compare the frameworks, as well as any anticipated outcomes or benchmarks.
+
+• A "Conclusions & Future Work" slide to summarize key takeaways and suggest directions for further research or improvements beyond this project.
+
+• An "Acknowledgements" slide (if applicable) to credit contributors or funding sources.
+
+These additions can provide a more comprehensive view of your project and guide your audience through each stage of your work.
