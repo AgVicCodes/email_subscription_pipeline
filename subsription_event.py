@@ -9,9 +9,9 @@ def generate_emails():
     last_name = fake.last_name()
     dm_weights = [0.5, 0.2, 0.05, 0.05, 0.2]
     domain = random.choices(["gmail", "outlook", "hotmail", "yahoo", "icloud"], dm_weights, k = 1)
-    extension = random.choice(["com", "co.uk", "org"])
+    extension = "com"
     email = f"{first_name}{last_name}@{domain[0]}.{extension}"
 
     return [first_name, last_name, email]
 
-print(generate_emails())
+# print(generate_emails())
