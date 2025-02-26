@@ -1,9 +1,0 @@
-{
-    "port": "5432",
-    "host": "localhost",
-    "driver": "psycopg2",
-    "dialect": "postgresql",
-    "username": "postgres",
-    "password": "abo200313",
-    "database": "transactions"
-}
