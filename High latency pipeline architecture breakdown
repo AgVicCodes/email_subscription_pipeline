@@ -1,3 +1,8 @@
+Justification:
+Data Volume & Velocity: High-volume, high-velocity data streams where 
+waiting for batch windows would hinder operations or user experience.
+
+
 1. Daily Batch ETL with Manual Triggers
 
 How It Works:
