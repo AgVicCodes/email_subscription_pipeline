@@ -3,28 +3,37 @@ import pandas as pd
 from sqlalchemy import create_engine
 from subsription_event import generate_emails
 
-data = [generate_emails() for _ in range(1)]
+def load_keys(path):
+    with open(path, "r") as file:
+        db = json.load(file)
 
-headers = ['first_name', 'last_name', 'email']
+    return db
 
-df = pd.DataFrame(data = data, columns = headers)
+def populate_df():
 
-print("\n")
+    data = [generate_emails() for _ in range(1)]
 
-print(df.head())
+    headers = ['first_name', 'last_name', 'email']
 
-with open("db.json", "r") as file:
-    db = json.load(file)
+    df = pd.DataFrame(data = data, columns = headers)
 
-# conn_str = "dialect+driver://username:password@host:port/database"
-conn_str = f"{db["dialect"]}+{db["driver"]}://{db['username']}:{db['password']}@{db['host']}:{db['port']}/{db['database']}"
+    print("\n")
 
-engine = create_engine(conn_str)
+    print(df.head())
 
-print(engine) if engine else None
+
+def conn_db():
+
+    db = load_keys("db.json")
+
+    # conn_str = "dialect+driver://username:password@host:port/database"
+    conn_str = f"{db["dialect"]}+{db["driver"]}://{db['username']}:{db['password']}@{db['host']}:{db['port']}/{db['database']}"
+
+    engine = create_engine(conn_str)
+
+    print(engine) if engine else None
 
 # df.to_sql(con = engine)
 
-# if __name__ == "__main__":
-#     # staging
-#     pass
+if __name__ == "__main__":
+    populate_df()
